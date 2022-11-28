@@ -1,4 +1,28 @@
 .main-nav {
-	background-color: #71E0CF;
-    height: 166px;
+	background-color: #71e0cf;
+	height: 166px;
+}
+.logo-icon {
+	color: #ffef95;
+	transform: rotate(-90deg);
+	filter: drop-shadow(-1px -1px 1px rgba(0, 0, 0, 0.3));
+}
+
+.logo-text {
+	font-size: 30px;
+}
+
+.logo-text :nth-child(2) {
+	font-weight: 100;
+}
+
+.bar-search-button {
+	border-width: 2px !important;
+	border-color: #ffef95 !important;
+	color: #ffef95 !important;
+	filter: drop-shadow(-1px -1px 1px rgba(0, 0, 0, 0.1));
+}
+.bar-search-button:hover {
+	background-color: #ffef95 !important;
+	color: black !important;
 }
