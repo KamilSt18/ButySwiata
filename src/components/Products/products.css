@@ -1,6 +1,7 @@
 .container-body {
 	background-color: white;
 	padding: 20px;
+    min-height: 50vh;
 }
 .container-text {
 	margin: 10px 0;

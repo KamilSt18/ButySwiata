@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row"
 import Form from "react-bootstrap/Form"
 import { Button } from "react-bootstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Link } from "react-router-dom"
 
 import {
 	faMagnifyingGlass,
@@ -18,13 +19,16 @@ const MainNav = () => {
 	return (
 		<Navbar className="main-nav">
 			<Container className="d-block">
-				<Navbar.Brand href="#home">
-					<img src={Logo} alt="Logo" className="logo-icon" />
-					<span className="logo-text">
-						<b>Buty</b>
-						<span>Swiata</span>
-					</span>
-				</Navbar.Brand>
+
+				<Link to={'/'} style={{textDecoration: 'none'}}>
+					<Navbar.Brand>
+						<img src={Logo} alt="Logo" className="logo-icon" />
+						<span className="logo-text">
+							<b>Buty</b>
+							<span>Swiata</span>
+						</span>
+					</Navbar.Brand>
+				</Link>
 
 				<Row>
 					<Form className="d-flex my-2">
