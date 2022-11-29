@@ -3,9 +3,10 @@
 	height: 166px;
 }
 .logo-icon {
-	color: #ffef95;
-	transform: rotate(-90deg);
+	width: 40px;
 	filter: drop-shadow(-1px -1px 1px rgba(0, 0, 0, 0.3));
+	margin-right: 10px;
+	margin-bottom: 10px;
 }
 
 .logo-text {

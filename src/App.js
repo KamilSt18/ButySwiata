@@ -1,99 +1,32 @@
 import React from "react"
-import MainNav from "./components/MainNav/MainNav"
-import "./app.css"
-import { Container, Row, Col } from "react-bootstrap"
+import { Row, Col, Container } from "react-bootstrap"
 
-import SportShoes from "./images/sport_shoes.svg"
-import HighHeels from "./images/high_heels.svg"
-import FlipFlops from "./images/flip_flops.png"
-import Boots from "./images/boots.png"
-import Sandals from "./images/sandals.svg"
-import Pumps from "./images/pumps.svg"
+import MainNav from "./components/MainNav/MainNav"
+import Categories from "./components/Categories/Categories"
+import Footer from "./components/Footer/Footer"
+import Products from "./components/Products/Products"
+import SearchForm from "./components/SearchForm/SearchForm"
+
+import "./app.css"
 
 const App = () => {
 	return (
 		<>
 			<MainNav />
+			<Categories />
+
 			<Container>
-				<Row className="my-5">
-					<Col>
-						<Row>
-							<div
-								className="shoes-bg-circle"
-								style={{ backgroundColor: "#ffef95" }}>
-								<img
-									src={SportShoes}
-									alt="Obuwie sportowe"
-									className="shoes-img-circle"
-								/>
-							</div>
-						</Row>
-						<Row className="shoes-text-circle" style={{ fontWeight: "bold" }}>
-							Obuwie sportowe
-						</Row>
+				<Row>
+					<Col lg={3}>
+						<SearchForm />
 					</Col>
 					<Col>
-						<Row>
-							<div className="shoes-bg-circle">
-								<img
-									src={HighHeels}
-									alt="Obuwie sportowe"
-									className="shoes-img-circle"
-								/>
-							</div>
-						</Row>
-						<Row className="shoes-text-circle">Buty na obcasie</Row>
-					</Col>
-					<Col>
-						<Row>
-							<div className="shoes-bg-circle">
-								<img
-									src={FlipFlops}
-									alt="Obuwie sportowe"
-									className="shoes-img-circle"
-								/>
-							</div>
-						</Row>
-						<Row className="shoes-text-circle">Japonki</Row>
-					</Col>
-					<Col>
-						<Row>
-							<div className="shoes-bg-circle">
-								<img
-									src={Boots}
-									alt="Obuwie sportowe"
-									className="shoes-img-circle"
-								/>
-							</div>
-						</Row>
-						<Row className="shoes-text-circle">Botki</Row>
-					</Col>
-					<Col>
-						<Row>
-							<div className="shoes-bg-circle">
-								<img
-									src={Sandals}
-									alt="Obuwie sportowe"
-									className="shoes-img-circle"
-								/>
-							</div>
-						</Row>
-						<Row className="shoes-text-circle">Sandały</Row>
-					</Col>
-					<Col>
-						<Row>
-							<div className="shoes-bg-circle">
-								<img
-									src={Pumps}
-									alt="Obuwie sportowe"
-									className="shoes-img-circle"
-								/>
-							</div>
-						</Row>
-						<Row className="shoes-text-circle">Czółenka</Row>
+						<Products />
 					</Col>
 				</Row>
 			</Container>
+			
+			<Footer />
 		</>
 	)
 }

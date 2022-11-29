@@ -1,0 +1,13 @@
+.container-body {
+	background-color: white;
+	padding: 20px;
+}
+.container-text {
+	margin: 10px 0;
+	display: block;
+	font-size: 18px;
+	font-weight: 600;
+}
+.card-style {
+	cursor: pointer;
+}

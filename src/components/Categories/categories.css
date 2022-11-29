@@ -1,0 +1,27 @@
+.shoes-bg-circle {
+	display: flex !important;
+	width: 150px !important;
+	height: 150px;
+	border-radius: 100%;
+	background-color: #ffffff;
+	margin: 0 auto;
+}
+.shoes-bg-circle:hover {
+	background-color: #ffef95;
+	cursor: pointer;
+}
+
+.shoes-text-circle {
+	display: flex;
+	justify-content: center;
+	padding: 10px 0px;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 30px;
+	color: black;
+}
+
+.shoes-img-circle {
+	margin: auto;
+	display: block;
+}
