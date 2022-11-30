@@ -32,6 +32,7 @@ const Details = () => {
                             <div><strong>Kategoria:</strong> Obuwie sportowe</div>
                             <div><strong>Marka:</strong> Nike</div>
                             <div><strong>Model:</strong> Air Max Sc CW4555 002</div>
+                            <div><strong>Rozmiar:</strong> 45</div>
                             <div><strong>Kolor:</strong> Czarny</div>
                             <hr />
                             
