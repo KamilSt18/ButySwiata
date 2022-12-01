@@ -1,47 +1,37 @@
-import React from 'react';
+import React from "react"
 
-import Card from 'react-bootstrap/Card';
-import { Col, Row } from 'react-bootstrap';
+import { Row } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 
-import './products.css'
-import Shoe from '../../images/shoe.jpg'
+import "./products.css"
+import CardShoes from "../CardShoes"
 
-const Products = () => {
-    const navigate = useNavigate();
-    return ( 
-        <>
-        				<span className="container-text">Lista produktów</span>
-					<div className="container-body">
-
-
-
-						<Row xs={1} md={3} xl={4} className="g-4">
-      {Array.from({ length: 8 }).map((_, idx) => (
-        <Col key={idx}>
-          <Card onClick={() => {
-            console.log('Klik')
-            navigate('/details')
-            }} className="card-style">
-            <Card.Img variant="top" src={Shoe} />
-            <Card.Body>
-              <Card.Text>
-			  Tenis feminino nike Revolution
-              </Card.Text>
-              <Card.Title>R$ 120,90</Card.Title>
-            </Card.Body>
-          </Card>
-        </Col>
-      ))}
-    </Row>
-
-
-
-
-
-					</div>
-        </>
-     );
+const Products = ({ shoes }) => {
+	const navigate = useNavigate()
+	const shoesCards = shoes.map(el => (
+		<CardShoes
+			key={el.id}
+			fun={() => {
+				console.log("Klik w " + el.id)
+				navigate(`/details/${el.id}`)
+			}}
+			img={el.image}
+			name={el.name}
+			price={el.price}
+			brand={el.brand}
+			model={el.model}
+		/>
+	)).reverse()
+	return (
+		<>
+			<span className="container-text">Lista produktów</span>
+			<div className="container-body">
+				<Row xs={1} md={3} xl={4} className="g-4">
+					{shoesCards.length > 0 ? shoesCards : <span style={{padding: 10}}>Brak produktów...</span>}
+				</Row>
+			</div>
+		</>
+	)
 }
- 
-export default Products;
+
+export default Products

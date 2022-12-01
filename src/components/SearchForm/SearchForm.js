@@ -1,7 +1,9 @@
 import React from 'react'
 import Form from 'react-bootstrap/Form';
 
-const SearchForm = () => {
+const SearchForm = ({sizes, colors}) => {
+    const sizesOption = sizes.map((size) => <option key={size.id} value={size.id}>{size.name}</option>)
+    const colorsOption = colors.map((color) => <option key={color.id} value={color.id}>{color.name}</option>)
     return ( 
         <>
         					<span className="container-text">Wyszukiwanie</span>
@@ -11,8 +13,7 @@ const SearchForm = () => {
         <Form.Label>Rozmiar</Form.Label>
         <Form.Select aria-label="Wybierz...">
               <option>Wybierz...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
+              {sizesOption}
             </Form.Select>
     </div>
 
@@ -20,8 +21,7 @@ const SearchForm = () => {
     <Form.Label>Kolor</Form.Label>
                         <Form.Select aria-label="Wybierz...">
           <option>Wybierz...</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
+          {colorsOption}
         </Form.Select>
 </div>
 

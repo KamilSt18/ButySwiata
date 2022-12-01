@@ -44,9 +44,9 @@ class Shoes(models.Model):
         verbose_name_plural = "Shoes"
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    image = models.ImageField(null=True, upload_to="images")
+    image = models.ImageField(null=True, upload_to="")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
-    size = models.ForeignKey(Size, on_delete=models.CASCADE, null=True)
+    size = models.ManyToManyField(Size)
     name = models.CharField(max_length=100)
     brand = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
@@ -56,5 +56,5 @@ class Shoes(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return self.name
+        return self.brand + " " + self.model + " " + self.name
 

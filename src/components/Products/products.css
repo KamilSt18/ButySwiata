@@ -1,7 +1,7 @@
 .container-body {
 	background-color: white;
 	padding: 20px;
-    min-height: 50vh;
+    min-height: 45vh;
 }
 .container-text {
 	margin: 10px 0;
@@ -11,4 +11,6 @@
 }
 .card-style {
 	cursor: pointer;
+	height: 370px !important;
+	overflow: hidden;
 }

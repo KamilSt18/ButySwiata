@@ -17,13 +17,13 @@ class ColorSerializer(serializers.ModelSerializer):
 class SizeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Size
-        fields = ['name', 'id']
+        fields = ['name']
 
 
 class ShoesSerializer(serializers.ModelSerializer):
     category = serializers.SerializerMethodField()
     color = serializers.SerializerMethodField()
-    size = serializers.SerializerMethodField()
+    size = SizeSerializer(many=True, read_only=True)
     class Meta:
         model = Shoes
         fields = ['id', 'image', 'category', 'name', 'brand', 'model', 'size', 'price', 'pieces', 'color', 'description']
@@ -34,5 +34,3 @@ class ShoesSerializer(serializers.ModelSerializer):
     def get_color(self, obj):
         return obj.color.name
 
-    def get_size(self, obj):
-        return obj.size.name
