@@ -8,19 +8,16 @@ import { Button } from "react-bootstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "react-router-dom"
 
-import {
-	faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons"
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 
 import "./mainnav.css"
 import Logo from "../../images/logo.png"
 
-const MainNav = () => {
+const MainNav = ({ searchRef, searchHandler }) => {
 	return (
 		<Navbar className="main-nav">
 			<Container className="d-block">
-
-				<Link to={'/'} style={{textDecoration: 'none'}}>
+				<Link to={"/"} style={{ textDecoration: "none" }}>
 					<Navbar.Brand>
 						<img src={Logo} alt="Logo" className="logo-icon" />
 						<span className="logo-text">
@@ -31,14 +28,16 @@ const MainNav = () => {
 				</Link>
 
 				<Row>
-					<Form className="d-flex my-2">
+					<Form className="d-flex my-2" onSubmit={searchHandler}>
 						<Form.Control
+							ref={searchRef}
 							type="search"
 							placeholder="Szukaj produktu"
 							className="me-2"
 							aria-label="Szukaj produktu"
 						/>
 						<Button
+							onClick={searchHandler}
 							variant="outline-secondary"
 							size="lg"
 							className="bar-search-button">

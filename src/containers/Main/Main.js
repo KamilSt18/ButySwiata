@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { Row, Col, Container } from "react-bootstrap"
 
 import MainNav from "../../components/MainNav/MainNav"
@@ -18,7 +18,16 @@ const Main = () => {
 	const [category, setCategory] = useSessionStorage(null)
 	const defLink = "/shoes/?"
 	const [url, setUrl] = useSessionStorage(defLink)
+
+	const searchRef = useRef()
+	const searchHandler = (e) => {
+		e.preventDefault()
+		setUrl(val => val + `&search=${searchRef.current.value}`)
+	}
+
+
 	useEffect(() => {
+		searchRef.current.value = ""
 		if (category) {
 			// Get items of category
 			setUrl(`/shoes/?category__name=${category}`)
@@ -55,7 +64,7 @@ const Main = () => {
 
 	return (
 		<>
-			<MainNav />
+			<MainNav searchRef={searchRef} searchHandler={searchHandler} />
 			<Categories
 				category={category}
 				setCategory={setCategory}
