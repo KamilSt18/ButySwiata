@@ -78,8 +78,7 @@ const Details = () => {
 											/szt
 										</Card.Title>
 										<Card.Text>
-											Możliwość zamówienia produktu, dostawa kurierem tel. +48
-											123-456-789
+											Możliwość zamówienia produktu, dostawa kurierem tel. +48 123 456 789
 										</Card.Text>
 									</Card.Body>
 									<Card.Footer>
