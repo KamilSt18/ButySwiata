@@ -17,7 +17,7 @@ class ColorSerializer(serializers.ModelSerializer):
 class SizeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Size
-        fields = ['name']
+        fields = ['name', 'id']
 
 
 class ShoesSerializer(serializers.ModelSerializer):

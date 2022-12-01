@@ -12,7 +12,6 @@ const Products = ({ shoes }) => {
 		<CardShoes
 			key={el.id}
 			fun={() => {
-				console.log("Klik w " + el.id)
 				navigate(`/details/${el.id}`)
 			}}
 			img={el.image}

@@ -6,7 +6,7 @@ const CardShoes = ({fun, img, name, price, brand, model}) => {
     return ( 
         <Col>
           <Card onClick={fun} className="card-style">
-            <Card.Img variant="top" src={img} />
+            <Card.Img variant="top" src={img} style={{height: 200, objectFit: 'cover'}}/>
             <Card.Body>
               <Card.Text>
 			  <b style={{whiteSpace: 'nowrap'}}>{brand}</b> <br/> <span style={{whiteSpace: 'nowrap'}}>{model}</span> <br/> <i style={{whiteSpace: 'nowrap'}}>{name}</i>
