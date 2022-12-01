@@ -8,23 +8,49 @@ import Products from "../../components/Products/Products"
 import SearchForm from "../../components/SearchForm/SearchForm"
 
 import { getRequest } from "../../api"
-import { useSessionStorage } from "../../utils/UseSessionStorage"
 
 const Main = () => {
 	const [shoes, setShoes] = useState([])
 	const [sizes, setSizes] = useState([])
 	const [colors, setColors] = useState([])
+	const [render, setRender] = useState(true);
 
-	const [category, setCategory] = useSessionStorage(null)
+	const [category, setCategory] = useState(null)
 	const defLink = "/shoes/?"
-	const [url, setUrl] = useSessionStorage(defLink)
+	const [url, setUrl] = useState(defLink)
 
+	const brandRef = useRef()
+	const modelRef = useRef()
 	const searchRef = useRef()
-	const searchHandler = (e) => {
+	const colorRef = useRef()
+	const sizeRef = useRef()
+	const searchHandler = e => {
 		e.preventDefault()
 		setUrl(val => val + `&search=${searchRef.current.value}`)
 	}
 
+	const applyHandler = () => {
+		// Size
+		if (sizeRef.current && sizeRef.current !== "Wybierz...") {
+			setUrl(val => val + `&size__name=${sizeRef.current}`)
+		}
+
+		// Color
+		if (colorRef.current && colorRef.current !== "Wybierz...") {
+			setUrl(val => val + `&color__name=${colorRef.current}`)
+		}
+
+		// Brand
+		if (brandRef.current.value && String(brandRef.current.value).length > 0) {
+			setUrl(val => val + `&search=${brandRef.current.value}`)
+		}
+
+		// Model
+		if (modelRef.current.value && String(modelRef.current.value).length > 0) {
+			setUrl(val => val + `&search=${modelRef.current.value}`)
+		}
+		setRender(val => !val)
+	}
 
 	useEffect(() => {
 		searchRef.current.value = ""
@@ -34,17 +60,16 @@ const Main = () => {
 		} else {
 			setUrl(defLink)
 		}
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [category])
 
 	useEffect(() => {
 		getRequest(url)
-		.then(res => {
-			setShoes(res)
-		})
-		.catch(err => console.log(err))
+			.then(res => {
+				setShoes(res)
+			})
+			.catch(err => console.log(err))
 	}, [url])
-	
 
 	useEffect(() => {
 		// Get sizes to arr
@@ -64,16 +89,31 @@ const Main = () => {
 
 	return (
 		<>
-			<MainNav searchRef={searchRef} searchHandler={searchHandler} />
+			<MainNav
+				searchRef={searchRef}
+				searchHandler={searchHandler}
+				setCategory={setCategory}
+				defLink={defLink}
+				setUrl={setUrl}
+			/>
 			<Categories
 				category={category}
 				setCategory={setCategory}
+				setRender={setRender}
 			/>
 
 			<Container>
 				<Row>
 					<Col lg={3}>
-						<SearchForm sizes={sizes} colors={colors} />
+						<SearchForm key={render}
+							sizes={sizes}
+							colors={colors}
+							applyHandler={applyHandler}
+							brandRef={brandRef}
+							modelRef={modelRef}
+							colorRef={colorRef}
+							sizeRef={sizeRef}
+						/>
 					</Col>
 					<Col>
 						<Products shoes={shoes} />

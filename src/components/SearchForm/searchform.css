@@ -1,0 +1,14 @@
+.search-button {
+    color: black;
+    font-weight: 500 !important;
+    letter-spacing: 0.5px;
+    font-size: 18px !important;
+	border-width: 0px !important;
+	background-color: rgb(113, 224, 207) !important;
+	filter: drop-shadow(-1px -1px 1px rgba(0, 0, 0, 0.1));
+    margin-top: 10px;
+}
+.search-button:hover {
+	background-color: #ffef95 !important;
+	color: black !important;
+}

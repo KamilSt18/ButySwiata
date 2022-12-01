@@ -13,12 +13,22 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 import "./mainnav.css"
 import Logo from "../../images/logo.png"
 
-const MainNav = ({ searchRef, searchHandler }) => {
+const MainNav = ({
+	searchRef,
+	searchHandler,
+	setCategory,
+	defLink,
+	setUrl,
+}) => {
 	return (
 		<Navbar className="main-nav">
 			<Container className="d-block">
 				<Link to={"/"} style={{ textDecoration: "none" }}>
-					<Navbar.Brand>
+					<Navbar.Brand
+						onClick={() => {
+							setCategory(null)
+							setUrl(defLink)
+						}}>
 						<img src={Logo} alt="Logo" className="logo-icon" />
 						<span className="logo-text">
 							<b>Buty</b>
