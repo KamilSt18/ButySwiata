@@ -26,6 +26,7 @@ const MainNav = ({
 				<Link to={"/"} style={{ textDecoration: "none" }}>
 					<Navbar.Brand
 						onClick={() => {
+							searchRef.current.value = ''
 							setCategory(null)
 							setUrl(defLink)
 						}}>
