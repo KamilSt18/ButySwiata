@@ -24,25 +24,15 @@ const Footer = () => {
 						<div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 							<h6 className="text-uppercase fw-bold mb-4">Kontakt</h6>
 							<p>
-								<FontAwesomeIcon
-									icon={faHome}
-									className="me-3"
-								/>{" "}
-								Fikcyjna 1, 00-000 Warszawa
+								<FontAwesomeIcon icon={faHome} className="me-3" /> Fikcyjna 1,
+								00-000 Warszawa
 							</p>
 							<p>
-              <FontAwesomeIcon
-									icon={faEnvelope}
-									className="me-3"
-								/>{" "}
+								<FontAwesomeIcon icon={faEnvelope} className="me-3" />{" "}
 								butyswiata@interia.pl
 							</p>
 							<p>
-              <FontAwesomeIcon
-									icon={faPhone}
-									className="me-3"
-								/>{" "}
-                +48 123 456
+								<FontAwesomeIcon icon={faPhone} className="me-3" /> +48 123 456
 								789
 							</p>
 						</div>
@@ -56,7 +46,14 @@ const Footer = () => {
 						fontSize: 14,
 						color: "#2F6030",
 					}}>
-					ButySwiata.pl <b>© 2022</b> | Wszelkie prawa zastrzeżone
+					ButySwiata.pl <b>© 2022</b> - Wszelkie prawa zastrzeżone | Designed by{" "}
+					<a
+						href="https://www.figma.com/@m4rc10jr"
+						style={{ textDecoration: "none" }}
+						target="_blank"
+						rel="noreferrer">
+						MJr
+					</a>
 				</div>
 			</footer>
 		</>

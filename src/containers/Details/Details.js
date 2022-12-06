@@ -53,7 +53,7 @@ const Details = () => {
 									<strong>Marka:</strong> {data.brand}
 								</div>
 								<div>
-									{/* <strong>Model:</strong> {JSON.stringify(data.model)} */}
+									<strong>Model:</strong> {data.model}
 								</div>
 								<div>
 									<strong>Rozmiar:</strong> {data.size}
