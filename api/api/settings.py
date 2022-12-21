@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+w6zd4ps3p4jj-^vdoklosgae*812q-%#a$gtqhqvonz2!w#50'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", '127.0.0.1']
+ALLOWED_HOSTS = ["localhost", '127.0.0.1', '146.59.94.112', 'butyswiata.pl']
 
 
 # Application definition
@@ -64,9 +64,13 @@ CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
+    'http://146.59.94.112',
+    'http://butyswiata.pl',
 ] # If this is used, then not need to use `CORS_ALLOW_ALL_ORIGINS = True`
 CORS_ALLOWED_ORIGIN_REGEXES = [
     'http://localhost:3000',
+    'http://146.59.94.112',
+    'http://butyswiata.pl',
 ]
 
 ROOT_URLCONF = 'api.urls'

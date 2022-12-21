@@ -29,7 +29,7 @@ const Details = () => {
 				<Container>
 					<div className="container-body" style={{ marginTop: 48 }}>
 						<Row>
-							<Col>
+							<Col sm="12" lg="6">
 								<h2>
 									{data.brand} {data.model}
 								</h2>
@@ -67,7 +67,7 @@ const Details = () => {
 									{data.description}
 								</p>
 							</Col>
-							<Col>
+							<Col sm="12" lg="6">
 								<Card className="text-center" style={{ marginTop: 85 }}>
 									<Card.Header>
 										<strong>Stan magazynowy</strong>
