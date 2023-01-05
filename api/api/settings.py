@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'butyswiata',
     'django_filters',
     'corsheaders',
+    "django_extensions",
 ]
 
 REST_FRAMEWORK = {
