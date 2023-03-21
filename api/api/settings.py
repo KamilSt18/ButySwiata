@@ -11,21 +11,27 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+import environ
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+w6zd4ps3p4jj-^vdoklosgae*812q-%#a$gtqhqvonz2!w#50'
+SECRET_KEY = env.list('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", '127.0.0.1', '146.59.94.112', 'butyswiata.pl']
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 
 # Application definition
@@ -63,16 +69,8 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'http://146.59.94.112',
-    'http://butyswiata.pl',
-] # If this is used, then not need to use `CORS_ALLOW_ALL_ORIGINS = True`
-CORS_ALLOWED_ORIGIN_REGEXES = [
-    'http://localhost:3000',
-    'http://146.59.94.112',
-    'http://butyswiata.pl',
-]
+CORS_ALLOWED_ORIGINS = env.list('CORS_ALLOWED_ORIGINS') # If this is used, then not need to use `CORS_ALLOW_ALL_ORIGINS = True`
+CORS_ALLOWED_ORIGIN_REGEXES = env.list('CORS_ALLOWED_ORIGIN_REGEXES')
 
 ROOT_URLCONF = 'api.urls'
 
@@ -148,4 +146,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "images")
-MEDIA_URL = "/api/images/"
+MEDIA_URL = env('MEDIA_URL')
