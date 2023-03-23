@@ -1,14 +1,19 @@
 import React from "react"
+
+import SearchView from "./search/containers/SearchView"
+import Details from "./details/containers/DetailsView"
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
-import Main from "./containers/Main/Main"
-import Details from "./containers/Details/Details"
+import { QueryClient, QueryClientProvider } from "react-query"
+
+const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <Main />,
-		errorElement: <Main />,
+		element: <SearchView />,
+		errorElement: <SearchView />,
 	},
 	{
 		path: "/details/:id",
@@ -17,7 +22,11 @@ const router = createBrowserRouter([
 ])
 
 const App = () => {
-	return <RouterProvider router={router} />
+	return (
+		<QueryClientProvider client={queryClient}>
+			<RouterProvider router={router} />
+		</QueryClientProvider>
+	)
 }
 
 export default App
